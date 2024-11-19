@@ -5,8 +5,10 @@ from sklearn.feature_extraction.text import CountVectorizer
 
 #creation of the function to be called in main pipeline
 def load_data():
+    # local folder of dataset
+    path = './data/SMSSpamCollection.csv'
     # Load the dataset
-    df = pd.read_csv('https://archive.ics.uci.edu/ml/machine-learning-databases/00228/smsspamcollection/SMSSpamCollection', sep='\t', names=['label', 'message'])
+     df = pd.read_csv(path, sep='\t', names=['label', 'message'])
     
     # Convert labels to binary by mapping the target variable
     df['label'] = df['label'].map({'ham': 0, 'spam': 1})
