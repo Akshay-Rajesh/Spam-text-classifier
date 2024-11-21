@@ -1,22 +1,27 @@
 from evaluate import evaluate_model
 from data_loader import load_data
+from model import train_model
 import mlflow
 
 def main():
     # Start the MLFlow experiment
     mlflow.set_experiment("SMS_Spam_Classificator")
 
-    with mlflow.start_run():
-        X_train, X_test, y_train, y_test = load_data()
+    with mlflow.start_run(run_name="First run"):  # Custom run name here
+        # Load the data and vectorizer
+        X_train, X_test, y_train, y_test, vectorizer = load_data()
 
-                # Train the model
-        # model = ...... model module missing .....
-        
-        # Evaluation of model
+        # Train the model
+        model = train_model(X_train, y_train)
+
+        # Log model parameters
+        mlflow.log_param("model_type", "MultinomialNB")
+
+        # Log vectorizer details
+        mlflow.log_param("vectorizer", str(vectorizer))
+
+        # Evaluate the model and log metrics
         evaluate_model(model, X_test, y_test)
-
-        print(X_train)
-
 
 if __name__ == "__main__":
     main()

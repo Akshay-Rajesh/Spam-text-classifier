@@ -28,4 +28,4 @@ def load_data():
     # Transform the test data using the same vectorizer
     X_test_vectorized = vectorizer.transform(X_test)
 
-    return X_train_vectorized, X_test_vectorized, y_train, y_test
+    return X_train_vectorized, X_test_vectorized, y_train, y_test , vectorizer
