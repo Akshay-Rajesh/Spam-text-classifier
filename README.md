@@ -22,3 +22,6 @@ The project is organized into the following files:
 2. Install the dependencies using the following command:
    ```bash
    pip install -r requirements.txt
+
+## **Wiki-page for Weekly Minutes
+- [https://github.com/pffaundez/Mini-Projects.wiki.git](https://github.com/pffaundez/Mini-Projects/wiki)
