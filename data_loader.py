@@ -2,6 +2,7 @@
 import pandas as pd 
 from sklearn.model_selection import train_test_split
 from sklearn.feature_extraction.text import CountVectorizer
+from imblearn.over_sampling import SMOTE
 
 # Creation of the function to be called in the main pipeline
 def load_data():
@@ -22,10 +23,19 @@ def load_data():
     # Loading sklearn's vectorizer
     vectorizer = CountVectorizer()
 
-    # Fit and transform the training data
+    # Fit and transform the training data to avoid Data Leakage
     X_train_vectorized = vectorizer.fit_transform(X_train)
 
     # Transform the test data using the same vectorizer
     X_test_vectorized = vectorizer.transform(X_test)
 
-    return X_train_vectorized, X_test_vectorized, y_train, y_test , vectorizer
+    # ----------------- OVERSAMPLING CON SMOTE -----------------
+    
+    # Creates instance SMOTE
+    smote = SMOTE(random_state=42)
+    
+    # Applies SMOTE over vectorized datasets in order to get the vectorial interpolations
+    X_train_resampled, y_train_resampled = smote.fit_resample(X_train_vectorized, y_train)
+    
+    # Get the datasets resampled (for training only)
+    return X_train_resampled, X_test_vectorized, y_train_resampled, y_test, vectorizer
