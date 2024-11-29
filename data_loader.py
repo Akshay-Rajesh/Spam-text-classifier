@@ -3,6 +3,7 @@ import pandas as pd
 from sklearn.model_selection import train_test_split
 from sklearn.feature_extraction.text import CountVectorizer
 from imblearn.over_sampling import SMOTE
+from preprocessing import preprocess_dataframe
 
 # Creation of the function to be called in the main pipeline
 def load_data():
@@ -15,8 +16,11 @@ def load_data():
     # Convert labels to binary by mapping the target variable
     df['label'] = df['label'].map({'ham': 0, 'spam': 1})
 
+    # Apply Preprocessing to the dataframe
+    df = preprocess_dataframe(df)
+
     # Split the dataset into training and test dataset
-    X_train, X_test, y_train, y_test = train_test_split(df['message'], df['label'], test_size=0.2, random_state=42)
+    X_train, X_test, y_train, y_test = train_test_split(df['cleaned_message'], df['label'], test_size=0.2, random_state=42)
 
     #------------------ PREPROCESSING --------------------------------
 
