@@ -1,13 +1,13 @@
 from evaluate import evaluate_model
 from data_loader import load_data
-from model import train_model
+from models.naive_bayes import train_model
 import mlflow
 
 def main():
     # Start the MLFlow experiment
     mlflow.set_experiment("SMS_Spam_Classificator")
 
-    with mlflow.start_run(run_name="First run"):  # Custom run name here
+    with mlflow.start_run(run_name="Second run (preprocessd data)"):  # Custom run name here
         # Load the data and vectorizer
         X_train, X_test, y_train, y_test, vectorizer = load_data()
 

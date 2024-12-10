@@ -1,0 +1,15 @@
+artifact_uri: file:///F:/Mini%20projects/Text%20Classifier/Mini-Projects/mlruns/450848766958843558/affc9638c9dd4ee0afd4619797f3ccf5/artifacts
+end_time: 1733802482604
+entry_point_name: ''
+experiment_id: '450848766958843558'
+lifecycle_stage: active
+run_id: affc9638c9dd4ee0afd4619797f3ccf5
+run_name: Second run (preprocessd data)
+run_uuid: affc9638c9dd4ee0afd4619797f3ccf5
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1733802479554
+status: 3
+tags: []
+user_id: aksha
