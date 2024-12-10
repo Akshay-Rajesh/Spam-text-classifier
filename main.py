@@ -1,6 +1,6 @@
 from evaluate import evaluate_model
 from data_loader import load_data
-from model import train_model
+from models.naive_bayes import train_model
 import mlflow
 
 def main():
