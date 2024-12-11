@@ -1,0 +1,15 @@
+artifact_uri: file:///F:/Mini%20projects/Text%20Classifier/Mini-Projects/mlruns/450848766958843558/b6b0398ab6124c138f28a010e1210351/artifacts
+end_time: 1733891296576
+entry_point_name: ''
+experiment_id: '450848766958843558'
+lifecycle_stage: active
+run_id: b6b0398ab6124c138f28a010e1210351
+run_name: Naive Bayes with Hyperparameter Tuning
+run_uuid: b6b0398ab6124c138f28a010e1210351
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1733891288389
+status: 3
+tags: []
+user_id: aksha

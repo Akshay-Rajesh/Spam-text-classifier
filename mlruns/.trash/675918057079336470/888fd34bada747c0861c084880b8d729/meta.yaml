@@ -1,8 +1,9 @@
 artifact_uri: file:///F:/Mini%20projects/Text%20Classifier/Mini-Projects/mlruns/675918057079336470/888fd34bada747c0861c084880b8d729/artifacts
+deleted_time: 1733891335509
 end_time: 1733887530990
 entry_point_name: ''
 experiment_id: '675918057079336470'
-lifecycle_stage: active
+lifecycle_stage: deleted
 run_id: 888fd34bada747c0861c084880b8d729
 run_name: Naive Bayes (with cross-validation)
 run_uuid: 888fd34bada747c0861c084880b8d729

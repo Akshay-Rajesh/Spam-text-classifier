@@ -26,13 +26,21 @@ def tune_hyperparameters(X_train, y_train):
     # Perform the grid search
     grid_search.fit(X_train, y_train)
 
+        # Log the best hyperparameters in MLflow
+    best_params = grid_search.best_params_
+    for param_name, param_value in best_params.items():
+        mlflow.log_param(param_name, param_value)
+
+    # Log the best cross-validation score
+    mlflow.log_metric("best_cv_f1_score", grid_search.best_score_)
+
     return grid_search
 
 def main():
     # Start the MLFlow experiment
     mlflow.set_experiment("SMS_Spam_Classificator")
 
-    with mlflow.start_run(run_name="Naive Bayes with Hyperparameter Tuning"):
+    with mlflow.start_run(run_name="Naive Bayes with Hyperparameter Tuning(logged in mlflow)"):
         # Load the data and vectorizer
         X_train, X_test, y_train, y_test, vectorizer = load_data()
 
