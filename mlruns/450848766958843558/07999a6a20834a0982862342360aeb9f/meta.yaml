@@ -1,0 +1,15 @@
+artifact_uri: file:///F:/Mini%20projects/Text%20Classifier/Mini-Projects/mlruns/450848766958843558/07999a6a20834a0982862342360aeb9f/artifacts
+end_time: 1733806011098
+entry_point_name: ''
+experiment_id: '450848766958843558'
+lifecycle_stage: active
+run_id: 07999a6a20834a0982862342360aeb9f
+run_name: Third run SVM (preprocessd data)
+run_uuid: 07999a6a20834a0982862342360aeb9f
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1733806003676
+status: 3
+tags: []
+user_id: aksha

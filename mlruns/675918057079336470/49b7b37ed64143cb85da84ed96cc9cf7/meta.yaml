@@ -1,0 +1,15 @@
+artifact_uri: file:///F:/Mini%20projects/Text%20Classifier/Mini-Projects/mlruns/675918057079336470/49b7b37ed64143cb85da84ed96cc9cf7/artifacts
+end_time: 1733887402159
+entry_point_name: ''
+experiment_id: '675918057079336470'
+lifecycle_stage: active
+run_id: 49b7b37ed64143cb85da84ed96cc9cf7
+run_name: Naive Bayes (with cross-validation)
+run_uuid: 49b7b37ed64143cb85da84ed96cc9cf7
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1733887398644
+status: 3
+tags: []
+user_id: aksha
