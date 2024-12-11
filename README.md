@@ -23,5 +23,14 @@ The project is organized into the following files:
    ```bash
    pip install -r requirements.txt
 
+## Best performance so far
+
+Model:NB 
+Preprocessing : True
+accuracy: 0.9757847533632287
+f1_score: 0.9120521172638436
+precision: 0.8860759493670886
+recall: 0.9395973154362416
+
 ## **Wiki-page for Weekly Minutes
 - [https://github.com/pffaundez/Mini-Projects.wiki.git](https://github.com/pffaundez/Mini-Projects/wiki)
