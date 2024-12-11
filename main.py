@@ -10,7 +10,7 @@ def tune_hyperparameters(X_train, y_train):
     """
     # Define the parameter grid for MultinomialNB
     param_grid = {
-        "alpha": [0.1, 0.5, 1.0, 1.5, 2.0],  # Smoothing parameter
+        "alpha": [0.01, 0.05, 0.1, 0.2, 0.5, 1.0, 2.0],  # Smoothing parameter
     }
 
     # Initialize GridSearchCV
@@ -40,7 +40,7 @@ def main():
     # Start the MLFlow experiment
     mlflow.set_experiment("SMS_Spam_Classificator")
 
-    with mlflow.start_run(run_name="Naive Bayes with Hyperparameter Tuning(logged in mlflow)"):
+    with mlflow.start_run(run_name="Naive Bayes with Hyperparameter Tuning(reduced the alpha values)"):
         # Load the data and vectorizer
         X_train, X_test, y_train, y_test, vectorizer = load_data()
 

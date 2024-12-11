@@ -1,0 +1,15 @@
+artifact_uri: file:///F:/Mini%20projects/Text%20Classifier/Mini-Projects/mlruns/450848766958843558/eb9932c3c00f4f9b9b0b32db63e2f0b4/artifacts
+end_time: 1733924969196
+entry_point_name: ''
+experiment_id: '450848766958843558'
+lifecycle_stage: active
+run_id: eb9932c3c00f4f9b9b0b32db63e2f0b4
+run_name: Naive Bayes with Hyperparameter Tuning(reduced the alpha values)
+run_uuid: eb9932c3c00f4f9b9b0b32db63e2f0b4
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1733924960921
+status: 3
+tags: []
+user_id: aksha
