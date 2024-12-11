@@ -1,5 +1,7 @@
 import re
 from nltk.corpus import stopwords
+from sklearn.feature_extraction.text import CountVectorizer
+from imblearn.over_sampling import SMOTE
 
 def clean_text(message):
     """
@@ -22,6 +24,24 @@ def clean_text(message):
     message = re.sub(r'\s+', ' ', message).strip()
     
     return message
+
+def vectorize_data(X_train, X_test):
+    """
+    Vectorizes the training and test datasets using CountVectorizer.
+    Ensures that the vectorizer is fitted only with the training data.
+    """
+    vectorizer = CountVectorizer()
+    X_train_vectorized = vectorizer.fit_transform(X_train)
+    X_test_vectorized = vectorizer.transform(X_test)
+    return X_train_vectorized, X_test_vectorized, vectorizer
+
+def apply_smote(X_train, y_train):
+    """
+    Applies SMOTE to address class imbalance issues in the training set.
+    """
+    smote = SMOTE(random_state=42)
+    X_train_resampled, y_train_resampled = smote.fit_resample(X_train, y_train)
+    return X_train_resampled, y_train_resampled
 
 def preprocess_dataframe(df):
     """
