@@ -22,7 +22,7 @@ def load_data():
     df = preprocess_dataframe(df)
 
     # Split the dataset into training and test dataset
-    X_train, X_test, y_train, y_test = train_test_split(df['cleaned_message'], df['label'], test_size=0.2, random_state=42)
+    X_train, X_test, y_train, y_test = train_test_split(df['cleaned_message'], df['label'], test_size=0.3, random_state=42)
 
     #------------------ VECTORIZATION --------------------------------
 
