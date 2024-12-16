@@ -32,5 +32,9 @@ f1_score: 0.9120521172638436
 precision: 0.8860759493670886
 recall: 0.9395973154362416
 
+## Model in Dagshub
+
+https://dagshub.com/Akshay-Rajesh/Spam-text-classifier/experiments#/experiment/m_d519a7cfcb7548b6b01e909175df5423
+
 ## **Wiki-page for Weekly Minutes
 - [https://github.com/pffaundez/Mini-Projects.wiki.git](https://github.com/pffaundez/Mini-Projects/wiki)
