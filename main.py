@@ -36,11 +36,15 @@ def tune_hyperparameters(X_train, y_train):
 
     return grid_search
 
+
+import dagshub
+dagshub.init(repo_owner='Akshay-Rajesh', repo_name='Spam-text-classifier', mlflow=True)
+
 def main():
     # Start the MLFlow experiment
     mlflow.set_experiment("SMS_Spam_Classificator")
 
-    with mlflow.start_run(run_name="Naive Bayes with Hyperparameter Tuning(reduced the alpha values)"):
+    with mlflow.start_run(run_name="First confirugation with dagshub"):
         # Load the data and vectorizer
         X_train, X_test, y_train, y_test, vectorizer = load_data()
 

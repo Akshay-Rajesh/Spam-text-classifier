@@ -1,0 +1,15 @@
+artifact_uri: file:///F:/Mini%20projects/Text%20Classifier/Mini-Projects/mlruns/450848766958843558/3b160ac1b15d4fadb8759405ee8a7bfc/artifacts
+end_time: 1734076366226
+entry_point_name: ''
+experiment_id: '450848766958843558'
+lifecycle_stage: active
+run_id: 3b160ac1b15d4fadb8759405ee8a7bfc
+run_name: naive byes with conusion Matrix
+run_uuid: 3b160ac1b15d4fadb8759405ee8a7bfc
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1734076355571
+status: 3
+tags: []
+user_id: aksha
