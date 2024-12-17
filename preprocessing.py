@@ -43,12 +43,12 @@ def apply_smote(X_train, y_train):
     X_train_resampled, y_train_resampled = smote.fit_resample(X_train, y_train)
     return X_train_resampled, y_train_resampled
 
-def preprocess_dataframe(df):
+def preprocess_dataframe(df, text_column_name):
     """
     Preprocesses the input DataFrame:
     - Cleans the text messages
     - Adds additional features
     """
-    df['cleaned_message'] = df['message'].apply(clean_text)
+    df['cleaned_message'] = df[text_column_name].apply(clean_text)
     # df = add_features(df)
     return df
