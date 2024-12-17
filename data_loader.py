@@ -19,7 +19,7 @@ def load_data():
     df['label'] = df['label'].map({'ham': 0, 'spam': 1})
 
     # Apply Preprocessing to the dataframe
-    df = preprocess_dataframe(df)
+    df = preprocess_dataframe(df, "message")
 
     # Split the dataset into training and test dataset
     X_train, X_test, y_train, y_test = train_test_split(df['cleaned_message'], df['label'], test_size=0.3, random_state=42)
