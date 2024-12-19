@@ -60,7 +60,7 @@ def evaluate_model(model, X, y):
     return metrics
 
 def main():
-    data_path = './data/new/Preprocessed_Dataset_5971.csv'
+    data_path = './data/Preprocessed_Dataset_5971.csv'
     model_path = './models/spam_classifier_model.pkl'  # Update this to your actual model path
 
     # Load the data
