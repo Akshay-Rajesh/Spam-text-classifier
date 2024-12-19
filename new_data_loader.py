@@ -35,7 +35,7 @@ def preprocess_data(df):
 
 def main():
     # Paths to the datasets
-    new_data_path = './data/new/Dataset_5971.csv'
+    new_data_path = './data/Dataset_5971.csv'
     old_data_path = './data/SMSSpamCollection.csv'
     
     # Load and merge datasets
@@ -45,7 +45,7 @@ def main():
     new_data_preprocessed = preprocess_data(new_data_clean)
     
     # Optionally, save the preprocessed new data to a new CSV file
-    new_data_preprocessed.to_csv('./data/new/Preprocessed_Dataset_5971.csv', index=False)
+    new_data_preprocessed.to_csv('./data/Preprocessed_Dataset_5971.csv', index=False)
 
 if __name__ == '__main__':
     main()
