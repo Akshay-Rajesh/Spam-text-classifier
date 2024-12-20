@@ -33,6 +33,18 @@ def preprocess_data(df):
     preprocessed_df = preprocess_dataframe(df, text_column_name='TEXT')
     return preprocessed_df
 
+def load_model_from_mlflow(run_id):
+    """
+    Loading MLflow model using run ID.
+    Args:
+        run_id (str): El ID del run de MLflow desde donde se cargará el modelo.
+    Returns:
+        model: Loaded and trained model.
+    """
+    model_uri = f"mlruns:/{run_id}/model"  # Asegúrate de que el nombre del artefacto sea correcto, aquí se usa 'model'
+    model = mlflow.pyfunc.load_model(model_uri)
+    return model
+
 def main():
     # Paths to the datasets
     new_data_path = './data/Dataset_5971.csv'
