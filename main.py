@@ -36,15 +36,29 @@ def tune_hyperparameters(X_train, y_train):
 
     return grid_search
 
-
+#this is to put the resuls online in dagshub
 import dagshub
 dagshub.init(repo_owner='Akshay-Rajesh', repo_name='Spam-text-classifier', mlflow=True)
+
+import joblib
+
+def save_model_and_vectorizer(model, vectorizer, model_path="model.pkl", vectorizer_path="vectorizer.pkl"):
+    """
+    Saves the trained model and vectorizer to disk.
+    """
+    joblib.dump(model, model_path)
+    joblib.dump(vectorizer, vectorizer_path)
+    print(f"Model saved to {model_path}")
+    print(f"Vectorizer saved to {vectorizer_path}")
+    mlflow.log_artifact(model_path)
+    mlflow.log_artifact(vectorizer_path)
+
 
 def main():
     # Start the MLFlow experiment
     mlflow.set_experiment("SMS_Spam_Classificator")
 
-    with mlflow.start_run(run_name="First confirugation with dagshub"):
+    with mlflow.start_run(run_name="Run to save the model as pickle file"):
         # Load the data and vectorizer
         X_train, X_test, y_train, y_test, vectorizer = load_data()
 
@@ -74,6 +88,11 @@ def main():
         # Evaluate the model on the test set
         print("Evaluating the best model on test data...")
         evaluate_model(model, X_test, y_test)
+        # Save the trained model and vectorizer
+        save_model_and_vectorizer(model, vectorizer)
+
+
+
 
 if __name__ == "__main__":
     main()
