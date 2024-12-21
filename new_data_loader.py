@@ -26,6 +26,7 @@ def load_and_merge_datasets(new_data_path, old_data_path):
 
     # Filter for 'ham' and 'spam' labels only
     filtered_data = unique_new_data[unique_new_data['LABEL'].isin(['ham', 'spam'])]
+    filtered_data['LABEL'] = filtered_data['LABEL'].map({'ham': 0, 'spam': 1})
 
     return filtered_data
 
