@@ -1,5 +1,8 @@
 import pandas as pd
 from preprocessing import preprocess_dataframe  # Assuming this function is defined in your preprocessing.py
+import nltk
+
+nltk.download('stopwords')
 
 def load_and_merge_datasets(new_data_path, old_data_path):
     """
@@ -12,14 +15,19 @@ def load_and_merge_datasets(new_data_path, old_data_path):
     """
     # Load the new and old datasets
     new_df = pd.read_csv(new_data_path)
-    old_df = pd.read_csv(old_data_path)
+    old_df = pd.read_csv(old_data_path, sep='\t', names=['label', 'message'])
     
-    # Concatenate both DataFrames
-    combined_df = pd.concat([new_df, old_df]).drop_duplicates(subset=['TEXT'], keep=False)
-    
-    # Return only the new data entries
-    unique_new_data = combined_df[~combined_df['TEXT'].isin(old_df['TEXT'])]
-    return unique_new_data
+    # Check for duplicates by merging new data with old data based on 'TEXT' column
+    combined_df = pd.concat([new_df, old_df], ignore_index=True)
+    unique_new_data = combined_df.drop_duplicates(subset=['TEXT'], keep=False)
+
+    # Filtering out the old data entries
+    unique_new_data = unique_new_data[~unique_new_data['TEXT'].isin(old_df['message'])]
+
+    # Filter for 'ham' and 'spam' labels only
+    filtered_data = unique_new_data[unique_new_data['LABEL'].isin(['ham', 'spam'])]
+
+    return filtered_data
 
 def preprocess_data(df):
     """
