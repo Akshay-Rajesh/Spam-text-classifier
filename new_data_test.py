@@ -13,28 +13,11 @@ def load_model(model_path):
     return model
 
 def load_preprocessed_data(data_path):
-    """
-    Load the preprocessed dataset from a CSV file.
-    Args:
-        data_path (str): Path to the CSV file containing the preprocessed data.
-    Returns:
-        X (pd.DataFrame): Features ready for model prediction.
-        y (pd.Series): True labels.
-    """
     df = pd.read_csv(data_path)
     return df['cleaned_message'], df['LABEL']
 
 
 def evaluate_model(model, X, y):
-    """
-    Evaluate the model using the loaded data.
-    Args:
-        model: The trained model.
-        X (pd.DataFrame): Features for prediction.
-        y (pd.Series): True labels.
-    Returns:
-        dict: A dictionary containing evaluation metrics.
-    """
     predictions = model.predict(X)
     metrics = {
         'Accuracy': accuracy_score(y, predictions),
