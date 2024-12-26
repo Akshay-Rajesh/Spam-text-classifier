@@ -5,14 +5,7 @@ import nltk
 nltk.download('stopwords')
 
 def load_and_merge_datasets(new_data_path, old_data_path):
-    """
-    Load the new and old datasets, and remove any duplicates.
-    Args:
-        new_data_path (str): Path to the new dataset CSV file.
-        old_data_path (str): Path to the existing dataset CSV file.
-    Returns:
-        pd.DataFrame: A DataFrame of the new data with duplicates removed.
-    """
+
     # Load the new and old datasets
     new_df = pd.read_csv(new_data_path)
     old_df = pd.read_csv(old_data_path, sep='\t', names=['label', 'message'])
