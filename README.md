@@ -16,6 +16,7 @@ The project is organized into the following files:
 - Scikit-learn
 - Pandas
 - NumPy
+- Dockers
 
 ## **How to Run**
 1. Clone this repository to your local machine.
