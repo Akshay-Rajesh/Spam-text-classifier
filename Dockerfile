@@ -2,9 +2,11 @@ FROM python:3.10-slim
 
 WORKDIR /app
 
-COPY . /app
+COPY requirements.txt
 
-RUN cat requirements.txt | grep -v 'pywin32==' | pip install --no-cache-dir -r /dev/stdin
+RUN pip install --no-cache-dir -r requirements.txt
+
+COPY . .
 
 EXPOSE 80
 
