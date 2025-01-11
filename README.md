@@ -24,6 +24,11 @@ The project is organized into the following files:
    ```bash
    pip install -r requirements.txt
 
+## **How to prepare container**
+1. docker build -t your-username/your-app:tag .
+2. docker push your-username/your-app:tag
+
+
 ## Best performance so far
 
 Model:NB 
