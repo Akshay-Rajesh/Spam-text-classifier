@@ -1,5 +1,6 @@
 import joblib
 from flask import Flask, request, jsonify
+import pdb
 
 app = Flask(__name__)
 
@@ -10,6 +11,7 @@ vectorizer = joblib.load('vectorizer.pkl')
 @app.route('/predict', methods=['POST'])
 def predict():
     try:
+
         data = request.get_json()
         message = data['message']
         message_vect = vectorizer.transform([message])
