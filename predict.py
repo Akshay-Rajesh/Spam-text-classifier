@@ -1,35 +1,39 @@
+from flask import Flask, request, jsonify, render_template
 import joblib
-from flask import Flask, request, jsonify
-import pdb
 
-# Define FastAPI app
-app = FastAPI()
+# Define Flask app
+app = Flask(__name__)
 
 # Load the model and vectorizer
 model = joblib.load("model.pkl")
 vectorizer = joblib.load("vectorizer.pkl")
 
-# Define the input schema using Pydantic
-class PredictionInput(BaseModel):
-    message: str
+# Serve the HTML form
+@app.route("/")
+def home():
+    return render_template("index.html")
 
 # Define the predict endpoint
-@app.post("/predict")
-async def predict(input_data: PredictionInput):
+@app.route("/predict", methods=["POST"])
+def predict():
     try:
-
-        data = request.get_json()
-        message = data['message']
+        # Get the message from the form
+        message = request.form["message"]
+        
+        # Vectorize the message
         message_vect = vectorizer.transform([message])
         
         # Make a prediction
         prediction = model.predict(message_vect)
         
+        # Map prediction to "SPAM" or "NO SPAM"
+        result = "SPAM" if prediction[0] == 1 else "NO SPAM"
+        
         # Return the prediction as JSON
-        return {"prediction": int(prediction[0])}
+        return jsonify({"prediction": result})
     except Exception as e:
         # Log and return error message
-        return HTTPException(status_code=500, detail=f"Error during prediction: {str(e)}")
+        return jsonify({"error": str(e)}), 500
 
 if __name__ == '__main__':
     app.run(host='0.0.0.0', port=80, debug=True)
