@@ -1,17 +1,9 @@
-
-FROM python:3.10-slim
-
-WORKDIR /app
-
-COPY requirements.txt .
-
-RUN pip install --no-cache-dir -r requirements.txt
-
-COPY . .
-
+FROM python:3.11-bullseye
+VOLUME /content
+COPY  . "/content"
+RUN pip install -r /content/requirements.txt
+WORKDIR /content
+CMD cd /content
+CMD python predict.py
 EXPOSE 80
-
-ENV NAME World
-
-CMD ["python", "predict.py"]
 
