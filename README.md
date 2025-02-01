@@ -17,6 +17,7 @@ The project is organized into the following files:
 - Pandas
 - NumPy
 - Dockers
+- Streamlit
 
 ## **How to Run**
 1. Clone this repository to your local machine.
@@ -28,15 +29,17 @@ The project is organized into the following files:
 1. docker build -t your-username/your-app:tag .
 2. docker push your-username/your-app:tag
 
+## **Link for Streamlit app**
+https://spamdetectormlalchemists.streamlit.app/
 
 ## Best performance so far
 
-Model:NB 
-Preprocessing : True
-accuracy: 0.9757847533632287
-f1_score: 0.9120521172638436
-precision: 0.8860759493670886
-recall: 0.9395973154362416
+- Model:NB Multinomial 
+- Preprocessing : True
+- accuracy: 0.9757847533632287
+- f1_score: 0.9120521172638436
+- precision: 0.8860759493670886
+- recall: 0.9395973154362416
 
 ## Model in Dagshub
 
